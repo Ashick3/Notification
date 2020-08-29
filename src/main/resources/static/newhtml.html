@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+    </head>
+    <body>
+
+        <div class="container" style="    border: 1px solid;    margin-top: 40px;">
+            <!--<input type="button" value="Send Email" onclick="displayRadioValue()"/>-->
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    VISMAYASMAX ANIMATION ACADEMY AND STUDIOS PVT. LTD
+                </div>
+                <div class="col-sm-12 text-center">
+                    Application Form
+                </div>             
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    Application No:
+                </div>
+                <div class="col-sm-3" style="margin-left: -6%;">
+                    <input class="form-control" id="applicationNo" disabled>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 27px;">
+                <div class="col-sm-6">
+                    <div class="radio">
+                        <label><input type="radio" name="optradio" 
+                                      value="BSc Animation and Visual Effects">BSc Animation and Visual Effects</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio" 
+                                      value="MSc  Animation  and Visual Effects">MSc  Animation  and Visual Effects</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio"
+
+                                      value="MBA">MBA</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio"
+                                      value="NSDC  Certificate  Course/Internship">NSDC  Certificate  Course/Internship</label>
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <!--<input type="file" id="img"  name="img" accept="image/*" style="float:right">-->
+                    <div class="form-group" style="float:right">
+                        <img id='img-upload' style="    height: 72px;
+                             margin-left: 26%;"/>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <span class="btn btn-default btn-file">
+                                    Upload Image <input type="file" id="imgInp">
+                                </span>
+                            </span>
+                            <!--<input type="text" class="form-control" readonly>-->
+                        </div>                      
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;    margin-top: 12px;">
+                <div class="col-sm-6">
+                    Name of the applicant
+                    (in Block letters as in the SSLC Book)<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5" style="display: inline-flex !important;">
+                    <span style="    margin-right: 11px !important;">English</span> <input class="form-control" id="NameApplicant">
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Expand the Initials, if any<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" id="expand">
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Sex<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-check-inline">
+                        <label><input type="radio" name="gender" value="Male">Male</label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label><input type="radio" name="gender" value="Female">Female</label>
+                    </div>                  
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Age<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" id="age">           
+                </div>
+            </div>
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Date of birth<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="date" id="dob">           
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Place of birth with Taluk & District<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="placeOfBirth">           
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Name of Parent/Guardian<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="nameOfParent">           
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Occupation of the parent /Guardian<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="occupation">           
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Annual Income<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="annualIncome">           
+                </div>
+            </div>
+
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Relationship of the guardian to the Applicant<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="relationship">           
+                </div>
+            </div>
+
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Marital Status<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-check-inline">
+                        <label><input type="radio" name="Marital" value="Single">Single</label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label><input type="radio" name="Marital" value="Married">Married</label>
+                    </div>                  
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Permanent Address of the Parent/Guardian<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <textarea class="form-control" rows="5" id="permanentAddress"></textarea>
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Address for Communication<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <textarea class="form-control" rows="5" id="address"></textarea>
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Land Phone No. With Code<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="landPhoneNo"> 
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Parent’s Mobile No<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="number" id="parentMobileNo"> 
+                </div>
+            </div>
+
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Student’s Mobile No<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="number" id="studentMobileNo"> 
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    E-mail address<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="email"> 
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Religion with caste<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="caste"> 
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Reg. No & Year of passing plus two with name
+                    of the University<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="yearOfPassing"> 
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Institution last attended<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="institution"> 
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Reg.No . & Year of Passing SSLC and
+                    Name of the School<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="SSLC"> 
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Whether Hostel Accommodation is
+                    required<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-check-inline">
+                        <label><input type="radio" name="Accommodation" value="Yes">Yes</label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label><input type="radio" name="Accommodation" value="No">No</label>
+                    </div>                  
+                </div>
+            </div>
+
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Courses studied<span  style="color: red">*</span>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="Secondary">Secondary
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="Higher Secondary">Higher Secondary
+
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="Graduation">Graduation
+                        </label>
+                    </div>    
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="Post Graduation">Post Graduation
+                        </label>
+                    </div>    
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    Any Other Diploma Course/Certificate Course Details
+                </div>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" id="other"> 
+                </div>
+            </div>
+
+            <div class="row" style="    margin-bottom: 20px;">
+                <div class="col-sm-12">
+                    NB : Attach Three Or More Photos For Records
+                </div>               
+            </div>
+
+
+            <div class="row" style="    margin-bottom: 50px;">
+                <div class="col-sm-12">
+                    I hereby undertake to participate in all field trips and projects conducted as per the syllabus for the
+                    completion of the course .All the entries in the application are correct.
+                </div>               
+            </div>
+            
+            <div style="    margin-bottom: 50px;    text-align: center;">
+                <button onclick="displayRadioValue()" type="button" class="btn btn-success">Submit</button>
+            </div>
+
+            <div>
+                <table class="table table-bordered"> 
+                    <tbody>
+                        <tr>
+                            <td class="text-center" colspan="4">FOR OFFICE USE ONLY</td>        
+                        </tr>
+                        <tr>
+                            <td colspan="3">Registration No</td>
+                            <td></td>       
+                        </tr>
+                        <tr>
+                            <td>Merit</td>
+                            <td>Waiting</td>
+                            <td>Qualified</td>
+                            <td>Admitted</td>
+                        </tr>
+                        <tr>        
+                            <td colspan="2">Mode of payment : Lump sum / Installment</td>
+                            <td colspan="2">Remarks</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <table class="table table-bordered"> 
+                <tbody>
+                    <tr>
+                        <td class="text-center" colspan="4">Vismayasmax Animation Academy
+                            ACKNOWLEDGEMENT</td>        
+                    </tr>
+                    <tr>
+                        <td colspan="3">Application No</td>
+                        <td></td>       
+                    </tr>
+                    <tr>
+                        <td colspan="3">Name of the candidate</td>
+                        <td></td>       
+                    </tr>
+                    <tr class="text-center">
+                        <td colspan="4">Received the application</td>        
+                    </tr>      
+                </tbody>
+            </table>
+        </div>
+        <script>
+//            function sendEmail() {
+//                Email.send({
+//                    Host: "smtp.gmail.com",
+//                    Username: "yashick@netphenix.com",
+//                    Password: "kids1234",
+//                    To: 'yashick@netphenix.com',
+//                    From: "yashick@netphenix.com",
+//                    Subject: "hi",
+//                    Body: "hi",
+//                    Attachments: [
+//                        {
+//                            name: "smtpjs.png",
+//                            path: "https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png"
+//                        }]
+//                }).then(
+//                        message => alert("mail sent successfully")
+//                );
+//            }
+        </script>
+        <script>
+            var test;
+            var dataURL;
+            $(document).ready(function () {
+
+                var min = 20;
+                var max = 10000;
+                var random = Math.floor(Math.random() * (+max + 1 - +min)) + +min;
+                document.getElementById("applicationNo").value = random;
+                $(document).on('change', '.btn-file :file', function () {
+                    var input = $(this),
+                            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                    input.trigger('fileselect', [label]);
+                });
+                $('.btn-file :file').on('fileselect', function (event, label) {
+
+                    var input = $(this).parents('.input-group').find(':text'),
+                            log = label;
+                    if (input.length) {
+                        input.val(log);
+                    } else {
+                        if (log)
+                            console.log("test", log)
+                        test = log;
+//                            alert(log);
+                    }
+
+                });
+                function readURL(input) {
+                    console.log("input", input)
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('#img-upload').attr('src', e.target.result);
+                            dataURL = reader.result;
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                        console.log(" e.target.result", dataURL)
+                    }
+                }
+
+                $("#imgInp").change(function () {
+                    readURL(this);
+                });
+            });
+            function displayRadioValue() {
+                console.log("test", test, dataURL)
+                var selectedCourse, applicationNo, NameApplicant, gender, NameApplicant, expand, age, dob, placeOfBirth,
+                        nameOfParent, occupation, annualIncome, relationship, Marital, permanentAddress,
+                        address, landPhoneNo, parentMobileNo, studentMobileNo, email,
+                        caste, yearOfPassing, institution, SSLC, Accommodation, other
+
+                var ele = document.getElementsByName('optradio');
+                for (i = 0; i < ele.length; i++) {
+                    if (ele[i].checked)
+                        selectedCourse = ele[i].value;
+                }
+                var ele1 = document.getElementsByName('gender');
+                for (i = 0; i < ele1.length; i++) {
+                    if (ele1[i].checked)
+                        gender = ele1[i].value;
+                }
+                var ele2 = document.getElementsByName('Marital');
+                for (i = 0; i < ele2.length; i++) {
+                    if (ele2[i].checked)
+                        Accommodation = ele2[i].value;
+                }
+                var ele3 = document.getElementsByName('Accommodation');
+                for (i = 0; i < ele3.length; i++) {
+                    if (ele3[i].checked)
+                        Marital = ele3[i].value;
+                }
+                applicationNo = document.getElementById("applicationNo").value;
+                NameApplicant = document.getElementById("NameApplicant").value;
+                expand = document.getElementById("expand").value;
+                age = document.getElementById("age").value;
+                dob = document.getElementById("dob").value;
+                placeOfBirth = document.getElementById("placeOfBirth").value;
+                nameOfParent = document.getElementById("nameOfParent").value;
+                occupation = document.getElementById("occupation").value;
+                annualIncome = document.getElementById("annualIncome").value;
+                relationship = document.getElementById("relationship").value;
+                permanentAddress = document.getElementById("permanentAddress").value;
+                address = document.getElementById("address").value;
+                landPhoneNo = document.getElementById("landPhoneNo").value;
+                parentMobileNo = document.getElementById("parentMobileNo").value;
+                studentMobileNo = document.getElementById("studentMobileNo").value;
+                email = document.getElementById("email").value;
+                caste = document.getElementById("caste").value;
+                yearOfPassing = document.getElementById("yearOfPassing").value;
+                institution = document.getElementById("institution").value;
+                SSLC = document.getElementById("SSLC").value;
+                other = document.getElementById("other").value;
+
+
+
+
+                Email.send({
+                    Host: "smtp.gmail.com",
+                    Username: "yashick@netphenix.com",
+                    Password: "kids1234",
+                    To: 'yashick@netphenix.com',
+                    From: "yashick@netphenix.com",
+                    Subject: "hi",
+                    Body: "<table border=1> <tr><td>selectedCourse </td><td>" + selectedCourse + "</td></tr>\n\
+        <tr><td>Name of the applicant (in Block letters as in the SSLC Book)</td><td>" + NameApplicant + "</td></tr>\n\
+<tr><td>Expand the Initials, if any</td><td>" + expand + "</td></tr>\n\
+<tr><td>Sex</td><td>" + gender + "</td></tr>\n\
+<tr><td>Age</td><td>" + age + "</td></tr>\n\
+<tr><td>Date of birth</td><td>" + dob + "</td></tr>\n\
+<tr><td>Place of birth with Taluk & District</td><td>" + placeOfBirth + "</td></tr>\n\
+<tr><td>Name of Parent/Guardian</td><td>" + nameOfParent + "</td></tr>\n\
+<tr><td>Occupation of the parent /Guardian</td><td>" + occupation + "</td></tr>\n\
+<tr><td>Annual Income</td><td>" + annualIncome + "</td></tr>\n\
+<tr><td>Relationship of the guardian to the Applicant</td><td>" + relationship + "</td></tr>\n\
+<tr><td>Marital Status</td><td>" + Marital + "</td></tr>\n\
+<tr><td>Permanent Address of the Parent/Guardian</td><td>" + permanentAddress + "</td></tr>\n\
+<tr><td>Address for Communication</td><td>" + address + "</td></tr>\n\
+<tr><td>Land Phone No. With Code</td><td>" + landPhoneNo + "</td></tr>\n\
+<tr><td>Parent’s Mobile No</td><td>" + parentMobileNo + "</td></tr>\n\
+<tr><td>Student’s Mobile No</td><td>" + studentMobileNo + "</td></tr>\n\
+<tr><td>E-mail address</td><td>" + email + "</td></tr>\n\
+<tr><td>Religion with caste</td><td>" + caste + "</td></tr>\n\
+<tr><td>Reg. No & Year of passing plus two with name of the University</td><td>" + yearOfPassing + "</td></tr>\n\
+<tr><td>Institution last attended</td><td>" + institution + "</td></tr>\n\
+<tr><td>Reg.No . & Year of Passing SSLC and Name of the School</td><td>" + SSLC + "</td></tr>\n\
+<tr><td>Whether Hostel Accommodation is required</td><td>" + Accommodation + "</td></tr>\n\
+<tr><td>Any Other Diploma Course/Certificate Course Details</td><td>" + other + "</td></tr> </table>"
+//                    Body: "<html><body><img src="
+//                            + 'https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png' + "\"><div>Application No:  " + applicationNo + "</div>\n\
+//        \n\
+//<div>selectedCourse:  " + selectedCourse + "</div>\n\
+//<div>Name of the applicant (in Block letters as in the SSLC Book):  " + NameApplicant + "</div>\n\
+//<div>Expand the Initials, if any:  " + expand + "</div>\n\
+//<div>Sex:  " + gender + "</div>\n\
+//<div>Age:  " + age + "</div>\n\
+//<div>Date of birth:  " + dob + "</div>\n\
+//<div>Place of birth with Taluk & District:  " + placeOfBirth + "</div>\n\
+//<div>Name of Parent/Guardian:  " + nameOfParent + "</div>\n\
+//<div>Occupation of the parent /Guardian:  " + occupation + "</div>\n\
+//<div>Annual Income:  " + annualIncome + "</div>\n\
+//<div>Relationship of the guardian to the Applicant:  " + relationship + "</div>\n\
+//<div>Marital Status:  " + Marital + "</div>\n\
+//<div>Permanent Address of the Parent/Guardian:  " + permanentAddress + "</div>\n\
+//<div>Address for Communication:  " + address + "</div>\n\
+//<div>Land Phone No. With Code:  " + landPhoneNo + "</div>\n\
+//<div>Parent’s Mobile No:  " + parentMobileNo + "</div>\n\
+//<div>Student’s Mobile No:  " + studentMobileNo + "</div>\n\
+//<div>E-mail address:  " + email + "</div>\n\
+//<div>Religion with caste:  " + caste + "</div>\n\
+//<div>Reg. No & Year of passing plus two with name of the University:  " + yearOfPassing + "</div>\n\
+//<div>Institution last attended:  " + institution + "</div>\n\
+//<div>Reg.No . & Year of Passing SSLC and Name of the School:  " + SSLC + "</div>\n\
+//<div>Whether Hostel Accommodation is required:  " + Accommodation + "</div>\n\
+//<div>Courses studied:  " + selectedCourse + "</div>\n\
+//<div>Any Other Diploma Course/Certificate Course Details:  " + other + "</div>\n\
+//</body></html>",
+//                    Attachments: [
+//                        {
+//                            name: test,
+//                            path: dataURL
+//                        }]
+
+                }).then(
+                        message => alert("mail sent successfully")
+                );
+
+            }
+            function sendEmail() {
+                Email.send({
+                    Host: "smtp.gmail.com",
+                    Username: "yashick@netphenix.com",
+                    Password: "kids1234",
+                    To: 'yashick@netphenix.com',
+                    From: "yashick@netphenix.com",
+                    Subject: "hi",
+                    Body: "<html><body> <div>Application No:  " + applicationNo + "</div></body></html>",
+
+                    //                            Attachments: [
+                    //                                {
+//                                    name: "image.png",
+//                                    path: dataURL
+//                                }]
+                }).then(
+                        message => alert("mail sent successfully")
+                );
+            }
+        </script>
+    </body>
+</html>

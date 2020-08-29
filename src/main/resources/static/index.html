@@ -1,0 +1,160 @@
+<html ng-app="demoApp">
+    <head>
+        <title>
+            testing
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">     
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <style>
+            .float-right{
+                float: right;
+            }
+            .float-left{
+                float: left;
+            }
+        </style>
+        <!--        <script>
+                    angular
+                            .module('httpServiceModule', [])
+                            .service("httpService", function ($http, $q) {
+                                var httpParams = {};
+                                this.httpProcess = function (reqMethod, reqUrl, params) {
+                                    if (!reqUrl) {
+                                        return;
+                                    }
+                                    var deferred = $q.defer();
+                                    httpParams = {
+                                        method: reqMethod,
+                                        url: reqUrl
+                                    };
+                                    if (params) {
+                                        httpParams.data = params;
+                                    }
+        //        console.log(httpParams)
+                                    return $http(httpParams).then(function (success) {
+                                        deferred.resolve(success.data);
+                                        return deferred.promise;
+                                    }, function (error) {
+                                        deferred.reject(error);
+                                        return deferred.promise;
+                                    }).catch(function (response) {
+                                        deferred.reject(response);
+                                        return deferred.promise;
+                                    }).finally(function () {
+                                        console.log("finally finished gists ==>>> ");
+                                    });
+                                };
+                            });
+                </script>-->
+    </head>
+    <body ng-controller="demoController">
+        <div class="container">            
+            <div style="margin-top: 12px">
+                <label>Title</label>
+                <input type="text"  ng-model="msg.title">
+                <label>Message</label>
+                <input type="text" ng-model="msg.message">
+                <button ng-click="done(msg)">done</button>                
+
+            </div>
+            <!--            <div class="row">
+                            <div class="col-sm-12" ng-repeat="aa in  a">
+                                <div class="col-sm-12" ng-class="{'float-left':(aa.id == null || aa.id == undefined)}">
+                                    <div ng-class="{'float-right':(aa.fcm != null || aa.fcm != undefined)}">
+                                        {{aa.title}}
+                                    </div>        
+                                </div>
+            
+                            </div>
+                            <div class="col-sm-4  col-sm-push-8">                        
+                                <div class="fileinput file input-new" style="width: 100%;" 
+                                     data-provides="fileinput" id="studentImageLabel">                                                                        
+                                    <div class="fileinput-preview thumbnail mb20 img-responsive grab"
+                                         data-trigger="fileinput" style="width:100%; height:330px">
+                                    </div>
+                                    <div>                                        
+                                        <span class="btn btn-default btn-file hiddenUploadButton">                                           
+                                            <input type="file" 
+                                                   ng-model-instant onclick="this.value = null;"
+                                                   onchange="angular.element(this).scope().getSelectedImg(event)"
+                                                   class="hiddenUploadButton">
+                                        </span>
+                                    </div>
+                                </div>                           
+                            </div>
+                            <input type="text" ng-model="title">
+                            <button type="button" ng-click="dones()">Send</button>
+                        </div>-->
+
+        </div>
+
+        <script>
+                    angular.module('demoApp', [])
+                            .controller('demoController', ['$scope', '$http', function ($scope, $http) {
+                                    $scope.a = [{id: 1, name: "sss", title: "ssss"}, {id: 2, name: "qq", title: "q"}]
+                                    $scope.msg = {};
+                                    $scope.datas = [];
+//                                    var tokenIds = "emNLuF_ISHisHdB1dtiOD4:APA91bHJsuZjxmZX6GvMaOuamxDlv4WxcxglsulTvgdsDcMLYVMWhiusYJzXfU_xlEzRmeyynROq6eQ1fgenyBj94a16tRnxOdZ_ryyLzwa598kVEvIKtjWCWV94-tjBMmfrNQGdJW4i";
+                                    var tokenIds = "da";
+                                    getNotitfication();
+                                    $scope.getSelectedImg = function (event) {
+                                        $scope.file = event.target.files[0];
+                                        var imageDetails = new FormData();
+                                        imageDetails.append('file', $scope.file);
+                                        var url = "image";
+                                        $http.post(url, imageDetails, {transformRequest: angular.identity, headers: {'Content-Type': undefined}}).then(function (response) {
+                                            console.log("image", response)
+                                        });
+                                    };
+                                    function getNotitfication() {
+                                        var req = {
+                                            method: 'GET',
+                                            url: 'http://localhost:8080/notification/' + tokenIds,
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            }
+                                        };
+                                        $http(req).then(function (response) {
+                                            console.log("test1---->.", response)
+                                            $scope.a = response.data
+                                        });
+                                    }
+                                    $scope.dones = function () {
+                                        var obj = {
+                                            title: $scope.title
+                                        }
+                                        $scope.a.push({fcm: null, title: obj.title});
+                                        $scope.done(obj)
+                                    }
+
+                                    $scope.done = function (obj) {
+//                                       
+//                                        obj.tokenId = "emNLuF_ISHisHdB1dtiOD4:APA91bHJsuZjxmZX6GvMaOuamxDlv4WxcxglsulTvgdsDcMLYVMWhiusYJzXfU_xlEzRmeyynROq6eQ1fgenyBj94a16tRnxOdZ_ryyLzwa598kVEvIKtjWCWV94-tjBMmfrNQGdJW4i";
+                                        obj.tokenId = "fq-DTsP7St-Ds4H9nUI1f-:APA91bEx3Dk-IEtTIPJwDUlo4Dy1P2Y8ql-B0C1Hg7A_k5ISP-51QG9nfnEGIedpZT6vMQ8NNqcRn9TECmNb2JleaGrlV6wq_tYAwwbEh8DrGUOma9thOyxLjLelMDxQS6RXZ57DVqhW";
+//                                        obj.tokenId = "fOO2NnKoSZCRe1cVSRGBQJ:APA91bG1ai_R-ewKLLVtP5uED3HrJHWVfHFeMi4-OQ9_dF-5TSnpF2xOpEKwy4qFTJAQYdfWU-ulTC3IGk0YSI8CKwn1SYLAWuWjnDIeRWGedNJQqrh-nQX_iZbhZ7qW0Q8a2m_tDolS";
+                                        console.log("ee", obj)
+                                        var req = {
+                                            method: 'POST',
+                                            url: 'http://localhost:8080/notificationEvent',
+                                            headers: {
+                                                'Content-Type': 'application/json'
+                                            },
+                                            data: obj
+                                        };
+                                        $http(req).then(function (response) {
+                                            console.log("test0---->.", response)
+                                        });
+
+                                    }
+
+                                }]);
+        </script>        
+    </body>
+</html>
+
+
