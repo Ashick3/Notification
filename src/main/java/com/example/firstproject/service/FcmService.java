@@ -19,6 +19,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 /**
  *
@@ -26,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 @Service
 @Transactional
+@CrossOrigin
 public class FcmService {
 
     @Autowired
@@ -60,6 +62,10 @@ public class FcmService {
 
 //Specify Message Format
             conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Access-Control-Allow-Headers", "*");
+            conn.setRequestProperty("Access-Control-Allow-Credentials", "true");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
 
 //Create JSON Object & pass value
             JSONObject infoJson = new JSONObject();
@@ -99,7 +105,6 @@ public class FcmService {
                 if (status == 200) {
 
 //SUCCESS message
-
                     BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
                     System.out.println("Android Notification Response : " + reader.readLine());

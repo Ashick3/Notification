@@ -133,23 +133,27 @@
                                     }
 
                                     $scope.done = function (obj) {
+
 //                                       
 //                                        obj.tokenId = "emNLuF_ISHisHdB1dtiOD4:APA91bHJsuZjxmZX6GvMaOuamxDlv4WxcxglsulTvgdsDcMLYVMWhiusYJzXfU_xlEzRmeyynROq6eQ1fgenyBj94a16tRnxOdZ_ryyLzwa598kVEvIKtjWCWV94-tjBMmfrNQGdJW4i";
                                         obj.tokenId = "fq-DTsP7St-Ds4H9nUI1f-:APA91bEx3Dk-IEtTIPJwDUlo4Dy1P2Y8ql-B0C1Hg7A_k5ISP-51QG9nfnEGIedpZT6vMQ8NNqcRn9TECmNb2JleaGrlV6wq_tYAwwbEh8DrGUOma9thOyxLjLelMDxQS6RXZ57DVqhW";
 //                                        obj.tokenId = "fOO2NnKoSZCRe1cVSRGBQJ:APA91bG1ai_R-ewKLLVtP5uED3HrJHWVfHFeMi4-OQ9_dF-5TSnpF2xOpEKwy4qFTJAQYdfWU-ulTC3IGk0YSI8CKwn1SYLAWuWjnDIeRWGedNJQqrh-nQX_iZbhZ7qW0Q8a2m_tDolS";
                                         console.log("ee", obj)
+
                                         var req = {
                                             method: 'POST',
-                                            url: 'http://localhost:8080/notificationEvent',
+                                            url: 'https://notificationincordova.herokuapp.com/notificationEvent',
+//                                            url: 'http://localhost:8080/notificationEvent',
                                             headers: {
-                                                'Content-Type': 'application/json'
+                                                'Content-Type': 'application/json',
+                                                'Access-Control-Allow-Credentials': 'true',
+                                                'Access-Control-Allow-Headers': '*'
                                             },
                                             data: obj
                                         };
                                         $http(req).then(function (response) {
                                             console.log("test0---->.", response)
                                         });
-
                                     }
 
                                 }]);
