@@ -24,7 +24,6 @@ public class MainService {
     @Autowired
     FcmService fcmService;
 
-
     public Fcm sendNotificationToUser(String tokenId, String title, String message) {
         Fcm fcm = new Fcm();
         fcm.setTokenId(tokenId);
@@ -32,12 +31,12 @@ public class MainService {
         fcm.setTitle(title);
         System.out.println("fcm++++++++++++" + fcm);
         fcmService.send_FCM_Notification(tokenId, title, message);
-        userDao.save(fcm);
+//        userDao.save(fcm);
         return null;
     }
 
-    @org.springframework.transaction.annotation.Transactional
-    public List<Fcm> getCustomer(String id) {
-        return userDao.getNotificationById(id);
-    }
+//    @org.springframework.transaction.annotation.Transactional
+//    public List<Fcm> getCustomer(String id) {
+//        return userDao.getNotificationById(id);
+//    }
 }

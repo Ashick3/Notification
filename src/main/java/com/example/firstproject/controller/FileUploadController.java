@@ -38,46 +38,46 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Controller
 @RequestMapping()
 public class FileUploadController {
-
-    //  private static String fileuploadPath = "/opt/work/ProjectImages/";
-    @Autowired
-    private FileUploadService fileuploadService;
-//    final static Logger log = Logger.getLogger(FileUploadController.class);
-
-    @RequestMapping(value = "image", method = RequestMethod.POST)
-    public @ResponseBody
-    Fileupload continueFileUpload(HttpServletRequest request, HttpServletResponse response) {
-
-        MultipartHttpServletRequest mRequest;
-        String returnFilename = null;
-        String fileName = null;
-        Integer id = 1;
-        try {
-            mRequest = (MultipartHttpServletRequest) request;
-            mRequest.getParameterMap();
-
-            Iterator<String> itr = mRequest.getFileNames();
-            while (itr.hasNext()) {
-                MultipartFile mFile = mRequest.getFile(itr.next());
-                fileName = mFile.getOriginalFilename();
-                returnFilename = "/opt/test" + RandomStringUtils.randomAlphanumeric(32).toUpperCase() + new Date().getTime() + "-" + fileName;
-//                returnFilename = Constant.FILE_UPLOAD_PATH + fileName;
-
-                java.nio.file.Path path = Paths.get(returnFilename);
-                Files.deleteIfExists(path);
-                InputStream in = mFile.getInputStream();
-                Files.copy(in, path);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        fileuploadService.saveFile(returnFilename, fileName);
-        return null;
+//
+//    //  private static String fileuploadPath = "/opt/work/ProjectImages/";
+//    @Autowired
+//    private FileUploadService fileuploadService;
+////    final static Logger log = Logger.getLogger(FileUploadController.class);
+//
+//    @RequestMapping(value = "image", method = RequestMethod.POST)
+//    public @ResponseBody
+//    Fileupload continueFileUpload(HttpServletRequest request, HttpServletResponse response) {
+//
+//        MultipartHttpServletRequest mRequest;
+//        String returnFilename = null;
+//        String fileName = null;
+//        Integer id = 1;
+//        try {
+//            mRequest = (MultipartHttpServletRequest) request;
+//            mRequest.getParameterMap();
+//
+//            Iterator<String> itr = mRequest.getFileNames();
+//            while (itr.hasNext()) {
+//                MultipartFile mFile = mRequest.getFile(itr.next());
+//                fileName = mFile.getOriginalFilename();
+//                returnFilename = "/opt/test" + RandomStringUtils.randomAlphanumeric(32).toUpperCase() + new Date().getTime() + "-" + fileName;
+////                returnFilename = Constant.FILE_UPLOAD_PATH + fileName;
+//
+//                java.nio.file.Path path = Paths.get(returnFilename);
+//                Files.deleteIfExists(path);
+//                InputStream in = mFile.getInputStream();
+//                Files.copy(in, path);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        fileuploadService.saveFile(returnFilename, fileName);
+//        return null;
     }
 
-    @ExceptionHandler
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public void handle(HttpMessageNotReadableException e) {
-        e.printStackTrace();
-    }
-}
+//    @ExceptionHandler
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public void handle(HttpMessageNotReadableException e) {
+//        e.printStackTrace();
+//    }
+//}

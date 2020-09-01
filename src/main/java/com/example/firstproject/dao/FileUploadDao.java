@@ -16,12 +16,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public class FileUploadDao extends BaseDao {
+public class FileUploadDao  {
 
-    public FileUploadDao() {
-        super();
-        setClazz(Fileupload.class);
-    }
+//    public FileUploadDao() {
+//        super();
+//        setClazz(Fileupload.class);
+//    }
 
 //    public Fileupload read(Integer id) {
 //        return (Fileupload) super.read(FileUpload.class);

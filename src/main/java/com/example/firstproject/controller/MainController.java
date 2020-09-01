@@ -43,10 +43,10 @@ public class MainController {
         return userService.sendNotificationToUser(tokenId, title, message);
     }
 
-    @RequestMapping(value = "/notification/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
-    public List<Fcm> getCustomer(HttpServletRequest request, HttpServletResponse response, @PathVariable String id) {
-        return userService.getCustomer(id);
-
-    }
+//    @RequestMapping(value = "/notification/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
+//    public List<Fcm> getCustomer(HttpServletRequest request, HttpServletResponse response, @PathVariable String id) {
+//        return userService.getCustomer(id);
+//
+//    }
    
 }

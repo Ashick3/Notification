@@ -17,18 +17,18 @@ import org.springframework.stereotype.Repository;
  * @author netphenix
  */
 @Repository
-public class MainDao extends BaseDao {
+public class MainDao  {
 
-    public MainDao() {
-        super();
-        setClazz(Fcm.class);
-    }
-
-    @Transactional
-    public List<Fcm> getNotificationById(String name) {
-        String queryStr = "select f from Fcm f where f.title = :name";
-        Query query = getCurrentSession().createQuery(queryStr);
-        query.setParameter("name", name);
-        return query.list();
-    }
+//    public MainDao() {
+//        super();
+//        setClazz(Fcm.class);
+//    }
+//
+//    @Transactional
+//    public List<Fcm> getNotificationById(String name) {
+//        String queryStr = "select f from Fcm f where f.title = :name";
+//        Query query = getCurrentSession().createQuery(queryStr);
+//        query.setParameter("name", name);
+//        return query.list();
+//    }
 }
