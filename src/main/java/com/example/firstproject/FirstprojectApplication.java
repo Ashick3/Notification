@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class FirstprojectApplication extends SpringBootServletInitializer {
+public class FirstprojectApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(FirstprojectApplication.class, args);
