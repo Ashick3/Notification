@@ -41,15 +41,16 @@ public class FileUploadService {
         System.out.println("returnFilename=========" + returnFilename);
         System.out.println("fileName=======" + fileName);
         System.out.println("fileUpload=======" + fileUpload);
-        fileUploadDao.saveOrUpdate(fileUpload);
-        
+//        fileUploadDao.saveOrUpdate(fileUpload);
+
         return fileUpload;
 
     }
 
     public Fileupload getFileById(Integer id) {
+        return null;
 //        log.debug("Calling saveFile function with return type Fileupload with parameter id" + id);
-        return (Fileupload) fileUploadDao.read(id);
+//        return (Fileupload) fileUploadDao.read(id);
     }
 
     @ExceptionHandler
